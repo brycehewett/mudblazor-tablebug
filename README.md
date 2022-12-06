@@ -1,4 +1,5 @@
 ## This repo illustrates an issue with MudBlazor's MudTable after publish.
+https://github.com/MudBlazor/MudBlazor/issues/5911
 
 ### To recreate the issue using this repo
 1. Clone the repo
