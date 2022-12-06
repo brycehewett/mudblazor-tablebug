@@ -1,5 +1,7 @@
 ﻿@page "/"
 @inject HttpClient Http
+@inject ILogger<Index> logger
+@using System.Text.Json
 @using MudBlazor.TableBug.Shared
 
 <PageTitle>Weather forecast</PageTitle>
@@ -34,6 +36,7 @@
 @code {
     private async Task<TableData<WeatherForecast>> ServerReload(TableState state)
     {
+        logger.LogInformation(JsonSerializer.Serialize(state));
         var res = await Http.PostAsJsonAsync<TableState>("WeatherForecast", state);
 
         return await res.Content.ReadFromJsonAsync<TableData<WeatherForecast>>();
