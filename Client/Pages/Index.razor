@@ -3,7 +3,7 @@
 @inject ILogger<Index> logger
 @using System.Text.Json
 @using MudBlazor.TableBug.Shared
-
+@using System.Diagnostics.CodeAnalysis;
 <PageTitle>Weather forecast</PageTitle>
 
 <MudText Typo="Typo.h3" GutterBottom="true">Weather forecast</MudText>
@@ -34,7 +34,7 @@
 
 
 @code {
-    private async Task<TableData<WeatherForecast>> ServerReload(TableState state)
+    private async Task<TableData<WeatherForecast>> ServerReload( TableState state)
     {
         logger.LogInformation(JsonSerializer.Serialize(state));
         var res = await Http.PostAsJsonAsync<TableState>("WeatherForecast", state);

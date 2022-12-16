@@ -46,7 +46,7 @@ namespace MudBlazor.TableBug.Server.Controllers
                     break;
             }
 
-            return Ok(new TableData<WeatherForecast>() {
+            return Ok(new {
                 TotalItems = data.Count(),
                 Items = data.Skip(state.Page * state.PageSize).Take(state.PageSize)
             });
